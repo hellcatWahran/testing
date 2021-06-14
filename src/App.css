@@ -1,0 +1,93 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* Font Import */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&display=swap");
+:root {
+  --f-fam: "Montserrat", sans-serif;
+  --p-color: #d6bbbb;
+  --s-color: #e9c7c7;
+  --success: rgb(66, 252, 66);
+}
+
+h2 {
+  font-family: var(--f-fam);
+  letter-spacing: 0.3rem;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+p {
+  font-family: var(--f-fam);
+  font-size: 0.8rem;
+  letter-spacing: 0.2rem;
+}
+p:active {
+  color: orange;
+}
+
+.main-box {
+  background: rgb(236, 230, 230);
+  padding: 2em;
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  align-items: center;
+  min-height: 100vh;
+}
+
+#title {
+  text-align: center;
+}
+
+.projects {
+  margin-top: 3em;
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 3em;
+  justify-content: space-evenly;
+}
+
+#dark-mode-toggle {
+  position: absolute;
+  right: 30px;
+  top: 28px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent; /* transparent with keyword */
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0); /* transparent with rgba */
+  -webkit-tap-highlight-color: hsla(0, 0, 0, 0); /* transparent with hsla */
+  -webkit-tap-highlight-color: #00000000; /* transparent with hex with alpha */
+  -webkit-tap-highlight-color: #0000;
+}
+
+@media only screen and (max-width: 425px) {
+  body {
+    background-color: lightblue;
+  }
+  .projects {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  #dark-mode-toggle {
+    right: 10px;
+  }
+}
+
+@media (hover: hover) {
+  .project-box:hover {
+    transform: scale(1.1);
+    box-shadow: 10px 10px 30px grey;
+    z-index: 2;
+  }
+}
+
+.random {
+  color: rgb(11, 59, 77);
+}
