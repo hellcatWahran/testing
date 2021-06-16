@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import ReactDOM from "react-dom";
 
 import "./App.css";
 
@@ -10,25 +9,17 @@ import Project from "./components/Project";
 import data from "./projects";
 
 function App() {
-  const [dark, setDark] = useState(true);
+  const [light, setLight] = useState(true);
 
   const toggleDarkMode = () => {
-    let mainBox = document.getElementById("main-box");
-    let button = document.getElementById("dark-mode-toggle");
-
-    //For Dark Mode
-    if (dark) {
-      mainBox.style.background = "rgb(6, 30, 39)";
-      button.src = "./assets/light.png";
-      setDark(false);
+    if (light) {
+      document.getElementById("dark-mode-toggle").src = "/assets/dark.png";
+      document.body.classList.add("light-mode");
+    } else {
+      document.getElementById("dark-mode-toggle").src = "/assets/light.png";
+      document.body.classList.remove("light-mode");
     }
-
-    //For Light Mode
-    if (!dark) {
-      mainBox.style.background = "rgb(236, 230, 230)";
-      button.src = "./assets/dark.png";
-      setDark(true);
-    }
+    setLight(!light);
   };
 
   return (
@@ -36,7 +27,7 @@ function App() {
       <h2 id="title">All My ReactJS Projects.</h2>
       <img
         id="dark-mode-toggle"
-        src="/assets/dark.png"
+        src="/assets/light.png"
         alt="Hola"
         onClick={toggleDarkMode}
       />

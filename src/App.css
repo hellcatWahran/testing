@@ -12,26 +12,36 @@
   --success: rgb(66, 252, 66);
 }
 
+/* Who want the transition??? */
+.main-box,
+h2,
+p {
+  transition: 0.5s ease-in-out;
+}
+
 h2 {
+  color: white;
   font-family: var(--f-fam);
   letter-spacing: 0.3rem;
 }
 
 .pointer {
   cursor: pointer;
+  color: white;
 }
 
 p {
   font-family: var(--f-fam);
   font-size: 0.8rem;
   letter-spacing: 0.2rem;
+  color: white;
 }
 p:active {
   color: orange;
 }
 
 .main-box {
-  background: rgb(236, 230, 230);
+  background: rgb(12, 49, 63);
   padding: 2em;
   display: flex;
   flex-direction: column;
@@ -46,12 +56,12 @@ p:active {
 
 .projects {
   margin-top: 3em;
-  display: flex;
-  width: 100%;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: 3em;
-  justify-content: space-evenly;
+  max-width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 250px);
+  padding: 10px;
+  column-gap: 2em;
+  row-gap: 2em;
 }
 
 #dark-mode-toggle {
@@ -83,11 +93,32 @@ p:active {
 @media (hover: hover) {
   .project-box:hover {
     transform: scale(1.1);
-    box-shadow: 10px 10px 30px grey;
+    box-shadow: 10px 10px 30px rgb(1, 22, 32), -5px -5px 20px rgb(25, 136, 180);
     z-index: 2;
+  }
+  .light-mode .project-box:hover {
+    box-shadow: 10px 10px 30px rgb(63, 62, 62),
+      -10px -10px 20px rgb(196, 196, 196);
   }
 }
 
-.random {
-  color: rgb(11, 59, 77);
+/* Dark Mode Functionality */
+/* .dark-mode {
+  background-color: rgb(12, 49, 63);
+} */
+.light-mode .main-box {
+  background-color: rgb(138, 136, 136);
+}
+.light-mode h2,
+.light-mode p {
+  color: rgb(128, 238, 229);
+}
+.light-mode .project-box {
+  background: rgb(148, 148, 148);
+}
+
+@media only screen and (max-width: 270px) {
+  .projects {
+    grid-template-columns: 190px;
+  }
 }
