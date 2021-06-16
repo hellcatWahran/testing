@@ -65,7 +65,7 @@ p:active {
 }
 
 #dark-mode-toggle {
-  position: absolute;
+  position: fixed;
   right: 30px;
   top: 28px;
   cursor: pointer;
